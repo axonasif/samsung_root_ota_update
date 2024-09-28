@@ -14,6 +14,8 @@ There's also another shortcut command called `up`, which will only give you the 
 
 ## Update protocols I follow
 
+Having a backup protocol in place is must unless your data and time is worthless. If something goes wrong after update, you could easily restore your previous device state.
+
 - Trigger manual Samsung cloud + Google backup
 - "Full" device backup using `Smart Switch (Desktop)`
 - Optionally, I may backup certain apps using `App Manager` (fdroid)
