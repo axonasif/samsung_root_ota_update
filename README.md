@@ -1,0 +1,1 @@
+# samsung_root_ota_update
