@@ -1,5 +1,9 @@
 # samsung_root_ota_update
 
+## Downloading firmware
+
+You can open this in Gitpod or GitHub Codespaces and process the firmware files there before downloading to your PC.
+
 Run `./startc.sh <your-csc> <your-model> <your-iemi>`.
 
 Example: `./startc.sh EVR SM-S928B 123456789012345` (not real IMEI BTW, use your own)
@@ -8,13 +12,13 @@ Once you're in the bash shell, you can run `down` command to directly download t
 
 There's also another shortcut command called `up`, which will only give you the latest firmware version string.
 
-# Update protocols I follow
+## Update protocols I follow
 
 - Trigger manual Samsung cloud + Google backup
 - "Full" device backup using `Smart Switch (Desktop)`
 - Optionally, I may backup certain apps using `App Manager` (fdroid)
 
-# How I flash/update S24 Ultra using Heimdall
+## How I flash/update S24 Ultra using Heimdall
 
 I don't own a Windows machine, I felt quite helpless due to the lack of proper/updated information online for anything other than Windows, and of course, Odin.
 
