@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get install -yq --no-install-recommends python3 python3.12-venv git wget p7zip
+RUN apt-get install -yq --no-install-recommends python3 python3.12-venv git wget p7zip unzip
 
 RUN mkdir -p -m 755 /etc/apt/keyrings \
 	&& wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
@@ -32,11 +32,19 @@ function down() {
         mkdir -p -m 0777 $DL_DIR
         cd $DL_DIR
         samloader -m $MODEL -r $CSC -i $IMEI download -O . -D
-        if ! grep -wq "${latest_fw}" "${vh_file}" 2>/dev/null && test "$(gh api user --jq '.login')" == axonasif; then
+        # if ! grep -wq "${latest_fw}" "${vh_file}" 2>/dev/null &&
+        if test "$(gh api user --jq '.login')" == axonasif; then
             zip_name=(*.zip)
             7z a -v2000m -mx0 ${zip_name}.7z ${zip_name}
-            gh release create "${latest_fw}" --generate-notes *.7z.*
-            printf '%s == %s\n' "$(up)" "$(date)" >> "${vh_file}"
+            unzip_data="$(unzip -l "${zip_name}")"
+            PDA="$(grep -ow ' AP_.*md5' <<<"${unzip_data}" |  awk -F_ '{print $2}')"
+            CSC="$(grep -ow ' HOME_CSC_.*md5' <<<"${unzip_data}" |  awk -F_ '{print $4}')"
+            final_fw="${PDA}/${CSC}/${PDA}/${PDA}"
+            if test "${latest_fw}" != "${final_fw}"; then
+                printf '%s\n' "Cloud vs Local version mismatch" "## Cloud: ${latest_fw}" "## Local: ${final_fw}"
+            fi
+            gh release create "${final_fw}" --generate-notes *.7z.*
+            # printf '%s == %s\n' "$(up)" "$(date)" >> "${vh_file}"
             rm *.7z.*
         fi
     )
