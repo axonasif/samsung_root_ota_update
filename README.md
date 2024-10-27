@@ -56,3 +56,6 @@ mv CSC_OXM/E3Q_EUR_OPENX.pit .
 /Applications/heimdall-frontend.app/Contents/MacOS/heimdall flash --APNHLOS BL/NON-HLOS.bin --XBL_RAMDUMP BL/XblRamdump.elf --ABL BL/abl.elf --AOP BL/aop.mbn --AOP_CONFIG BL/aop_devcfg.mbn --APDP BL/apdp.mbn --BKSECAPP BL/bksecapp.mbn --CPUCP BL/cpucp.elf --CPUCP_DTB BL/cpucp_dtbs.elf --DEVCFG BL/devcfg.mbn --DSP BL/dspso.bin --EM BL/engmode.mbn --HYP BL/hypvm.mbn --IMAGEFV BL/imagefv.elf --KEYMASTER BL/keymint.mbn --TOOLSFV BL/quest.fv --QUPFW BL/qupv3fw.elf --SECDATA BL/sec.elf --SHRM BL/shrm.elf --STORSEC BL/storsec.mbn --TZ BL/tz.mbn --HDM BL/tz_hdm.mbn --TZICCC BL/tz_iccc.mbn --TZ_KG BL/tz_kg.mbn --UEFI BL/uefi.elf --UEFISECAPP BL/uefi_sec.mbn --VK BL/vaultkeeper.mbn --VBMETA BL/vbmeta.img --XBL_CONFIG BL/xbl_config.elf --XBL BL/xbl_s.melf --BOOT AP/boot.img --DTBO AP/dtbo.img --INIT_BOOT AP/init_boot.img --RECOVERY AP/recovery.img --SUPER AP/super.img --VBMETA_SYSTEM AP/vbmeta_system.img --VENDOR_BOOT AP/vendor_boot.img --VM-BOOTSYS AP/vm-bootsys.img --MODEM CP/modem.bin --CACHE HOME_CSC_OXM/cache.img --OPTICS HOME_CSC_OXM/optics.img --PRISM HOME_CSC_OXM/prism.img
 ```
 
+## Notes for me
+
+- s24 ultra EVR changelog: https://doc.samsungmobile.com/SM-S928B/EVR/doc.html
